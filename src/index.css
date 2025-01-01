@@ -1,4 +1,3 @@
-
 * {
   box-sizing: border-box;
 }
@@ -6,19 +5,22 @@
 body {
   font-family: sans-serif;
   color: #333;
+  margin: 0; /* Ensure no extra scrollbars due to margin */
 }
 
 .steps {
-  width: 600px;
+  width: 90%; /* Use a percentage width for flexibility */
+  max-width: 600px; /* Keep the maximum width for larger screens */
   background-color: #f7f7f7;
   border-radius: 7px;
-  padding: 25px 100px;
-  margin: 100px auto;
+  padding: 25px 20px; /* Reduce padding for smaller screens */
+  margin: 50px auto; /* Adjust margin for smaller screens */
 }
 
 .numbers {
   display: flex;
   justify-content: space-between;
+  gap: 10px; /* Add spacing between the items */
 }
 
 .numbers > div {
@@ -39,8 +41,8 @@ body {
 
 .message {
   text-align: center;
-  font-size: 20px;
-  margin: 40px 0;
+  font-size: 18px; /* Adjust font size for better readability on smaller screens */
+  margin: 30px 0;
   font-weight: bold;
 
   display: flex;
@@ -50,7 +52,9 @@ body {
 
 .buttons {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column; /* Stack buttons on smaller screens */
+  gap: 15px; /* Add spacing between stacked buttons */
+  align-items: stretch; /* Ensure buttons take full width */
 }
 
 .buttons button {
@@ -63,7 +67,8 @@ body {
 
   display: flex;
   align-items: center;
-  gap: 10px;
+  justify-content: center;
+  gap: 10px; /* Adjust for better spacing */
 }
 
 .buttons button span {
@@ -89,4 +94,33 @@ h3 {
 
 .close:hover {
   color: #7950f2;
+}
+
+/* Media Query for smaller screens */
+@media (max-width: 768px) {
+  .steps {
+    padding: 20px 15px; /* Reduce padding */
+  }
+
+  .numbers {
+    flex-wrap: wrap; /* Allow numbers to wrap if needed */
+    gap: 15px; /* Increase spacing */
+  }
+
+  .numbers > div {
+    font-size: 16px; /* Adjust font size for better fit */
+  }
+
+  .message {
+    font-size: 16px; /* Reduce font size */
+  }
+
+  .buttons {
+    flex-direction: column; /* Stack buttons vertically */
+  }
+
+  .buttons button {
+    font-size: 12px; /* Reduce font size for smaller buttons */
+    padding: 8px 12px; /* Adjust padding */
+  }
 }
